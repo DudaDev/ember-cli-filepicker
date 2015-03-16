@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-filepicker",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.2",
+  "description": "Ember cli file picker using filepicker.io",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -32,7 +32,8 @@
     "ember-data": "1.0.0-beta.14.1",
     "ember-export-application-global": "^1.0.2",
     "express": "^4.8.5",
-    "glob": "^4.0.5"
+    "glob": "4.0.5",
+    "rimraf": "^2.2.8"
   },
   "keywords": [
     "ember-addon"
