@@ -14,7 +14,7 @@ module.exports = function(environment) {
     },
 
     APP: {
-      filePickerKey: 'Afrmw9gPxQauAjV7GFKOYz'
+      filepickerKey: 'Afrmw9gPxQauAjV7GFKOYz'
     }
   };
 

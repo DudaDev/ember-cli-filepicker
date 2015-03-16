@@ -4,13 +4,28 @@ This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
+* `ember install:addon ember-cli-filepicker`
 
-## Registration
+## Usage
 * Create your filepicker.io key using the following URL: https://www.filepicker.io/.
-* Add your filepicker.io key in your environment.js file under APP - filePickerKey.
+* Add your filepicker.io key in your config/environment.js
+```
+//config/environment.js 
+module.exports = function(environment) {
+  var ENV = {
+    //...
+
+    APP: {
+      filepickerKey: '<your-filepicker-key>'
+    }
+  };
+//...
+```
 * Use the filepicker.io documentation for options like extensions and services.
+* In your template:
+```
+{{ember-filepicker options=options onSelection='fileSelected' onClose='onClose' onError='onError'}}
+```
 
 ## Running
 
