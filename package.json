@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-filepicker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Ember cli file picker using filepicker.io",
   "directories": {
     "doc": "doc",
@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/yonida/ember-cli-filepicker",
+  "repository": "https://github.com/DudaDev/ember-cli-filepicker.git",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -36,7 +36,8 @@
     "rimraf": "^2.2.8"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "filepicker.io"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"

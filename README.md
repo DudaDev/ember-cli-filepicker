@@ -6,7 +6,11 @@ This README outlines the details of collaborating on this Ember addon.
 
 * `git clone` this repository
 * `npm install`
-* `bower install`
+
+## Registration
+* Create your filepicker.io key using the following URL: https://www.filepicker.io/.
+* Add your filepicker.io key in your environment.js file under APP - filePickerKey.
+* Use the filepicker.io documentation for options like extensions and services.
 
 ## Running
 
