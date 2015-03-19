@@ -22,7 +22,7 @@ export default Ember.Mixin.create({
 	options : {},
 
 	show: function() {
-		filepicker.pick(
+		window.filepicker.pick(
 			this.get('options'),
 			this.handleSelection.bind(this),
 			this.handleError.bind(this)
