@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-filepicker",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Ember cli file picker using filepicker.io",
   "directories": {
     "doc": "doc",
@@ -37,7 +37,8 @@
   },
   "keywords": [
     "ember-addon",
-    "filepicker.io"
+    "filepicker.io",
+    "filepicker"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
