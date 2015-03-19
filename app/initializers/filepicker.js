@@ -1,4 +1,3 @@
-//import env from  GET KEY FROM ENV CONFIG
 
 export default {
 	
