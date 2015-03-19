@@ -1,4 +1,5 @@
 # Ember-cli-filepicker
+
 [![npm version](https://badge.fury.io/js/ember-cli-filepicker.svg)](http://badge.fury.io/js/ember-cli-filepicker)
 [![Build Status](https://travis-ci.org/DudaDev/ember-cli-filepicker.svg)](https://travis-ci.org/DudaDev/ember-cli-filepicker)  
 
