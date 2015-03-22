@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-filepicker",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Ember cli file picker using filepicker.io",
   "directories": {
     "doc": "doc",
@@ -31,7 +31,6 @@
     "ember-cli-uglify": "1.0.1",
     "ember-data": "1.0.0-beta.14.1",
     "ember-export-application-global": "^1.0.2",
-    "ember-inject-script": "0.0.2",
     "express": "^4.8.5",
     "glob": "4.0.5",
     "rimraf": "^2.2.8"
@@ -43,5 +42,8 @@
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "dependencies": {
+    "ember-inject-script": "0.0.2"
   }
 }
