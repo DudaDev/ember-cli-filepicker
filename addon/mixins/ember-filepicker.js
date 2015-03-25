@@ -22,10 +22,12 @@ export default Ember.Mixin.create({
 	options : {},
 
 	show: function() {
-		window.filepicker.pick(
-			this.get('options'),
-			this.handleSelection.bind(this),
-			this.handleError.bind(this)
-		);
+		this.get('filepicker').then( function(filepicker) {
+			filepicker.pick(
+				this.get('options'),
+				this.handleSelection.bind(this),
+				this.handleError.bind(this)
+			);
+		}.bind(this));
 	}.on('didInsertElement')
 });
