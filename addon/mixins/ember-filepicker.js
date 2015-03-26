@@ -28,13 +28,13 @@ export default Ember.Mixin.create({
 	filepicker: Ember.inject ? Ember.inject.service() : null,
 	openFilepicker: function() {
 		Ember.run.scheduleOnce('afterRender', this, function(){
-			this.get('filepicker.promise').then( function(filepicker) {
+			this.get('filepicker.promise').then(Ember.run.bind(this, function(filepicker) {
 				filepicker.pick(
 					this.get('options'),
-					this.handleSelection.bind(this),
-					this.handleError.bind(this)
+					Ember.run.bind(this, this.handleSelection),
+					Ember.run.bind(this.handleError)
 				);
-			}.bind(this));
+			}));
 		});	
 	}.on('didInsertElement')
 });
