@@ -1,4 +1,4 @@
-import environment from '../config/environment';
+import config from '../config/environment';
 import injectScript from 'ember-inject-script';
 import Ember from 'ember';
 
@@ -12,8 +12,8 @@ export default (Ember.Service || Ember.Object).extend({
 			resolveFn(filepicker);
 		}.bind(this));
 	},
-	key: environment.filepickerKey || environment.APP.filepickerKey,
-	scriptURL : '//api.filepicker.io/v1/filepicker.js' || environment.filepickerURL || environment.APP.filepickerURL,
+	key: config.filepickerKey || config.APP.filepickerKey,
+	scriptURL : '//api.filepicker.io/v1/filepicker.js' || config.filepickerURL || config.APP.filepickerURL,
 	promise: new Ember.RSVP.Promise(function(resolve, reject) {
 		resolveFn = resolve;
 	}),
