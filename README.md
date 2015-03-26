@@ -15,10 +15,7 @@
 module.exports = function(environment) {
   var ENV = {
     //...
-
-    APP: {
-      filepickerKey: '<your-filepicker-key>'
-    }
+    filepickerKey: '<your-filepicker-key>'
   };
 //...
 ```
@@ -26,6 +23,38 @@ module.exports = function(environment) {
 * In your template:
 ```
 {{ember-filepicker options=options onSelection='fileSelected' onClose='onClose' onError='onError'}}
+```
+
+## Notes
+In order to have access to the `filepicker` instance you can:
+* If `Ember.inject.service` is supported then in your object you can use:
+```
+export default Ember.Component.extend({
+	//injecting the filepicker object
+	filepicker: Ember.inject.service(),
+
+	someFunction: function(){
+		//Use the promise in case you are not sure that your component will be surly initialized after filepicker has been loaded
+		this.get('filepicker.promise').then(function(filepicker){
+			//do something with filepicker
+		});
+
+		//OR if you are sure filepicker has already been loaded use:
+		this.get('filepicker.instance')
+	}
+});
+```
+* Otherwise, you can use the lookup method:
+```
+export default Ember.Component.extend({
+	//injecting the filepicker object
+	filepicker: Ember.inject.service(),
+
+	someFunction: function(){
+		var filepicker = this.container.lookup('service:filepicker');
+		//do something with the filepicker.instance or filepicker.promise
+	}
+});
 ```
 
 ## Running

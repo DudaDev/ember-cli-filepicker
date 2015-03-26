@@ -12,9 +12,9 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-
+    filepickerKey: 'Afrmw9gPxQauAjV7GFKOYz',
     APP: {
-      filepickerKey: 'Afrmw9gPxQauAjV7GFKOYz'
+      
     }
   };
 
