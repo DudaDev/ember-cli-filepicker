@@ -32,7 +32,7 @@ export default Ember.Mixin.create({
 				filepicker.pick(
 					this.get('options'),
 					Ember.run.bind(this, this.handleSelection),
-					Ember.run.bind(this.handleError)
+					Ember.run.bind(this, this.handleError)
 				);
 			}));
 		});	
