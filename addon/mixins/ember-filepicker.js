@@ -16,7 +16,7 @@ export default Ember.Mixin.create({
 	handleError: function(data) {
 		if (data.code === 101 && this.get('onClose')) {
 			this.sendAction('onClose');
-		} 
+		}
 		else if (this.get('onError')) {
 			this.sendAction('onError', data);
 		}
@@ -29,12 +29,23 @@ export default Ember.Mixin.create({
 	openFilepicker: function() {
 		Ember.run.scheduleOnce('afterRender', this, function(){
 			this.get('filepicker.promise').then(Ember.run.bind(this, function(filepicker) {
-				filepicker.pick(
-					this.get('options'),
-					Ember.run.bind(this, this.handleSelection),
-					Ember.run.bind(this, this.handleError)
-				);
+				var options = this.get('options');
+        if (options && options.useStore) {
+            filepicker.pickAndStore(
+              options.picker,
+              options.store,
+              Ember.run.bind(this, this.handleSelection),
+              Ember.run.bind(this, this.handleError)
+            );
+        }
+        else {
+          filepicker.pick(
+            options.picker,
+            Ember.run.bind(this, this.handleSelection),
+            Ember.run.bind(this, this.handleError)
+          );
+        }
 			}));
-		});	
+		});
 	}.on('didInsertElement')
 });
