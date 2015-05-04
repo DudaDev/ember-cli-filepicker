@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-filepicker",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Ember cli file picker using filepicker.io",
   "directories": {
     "doc": "doc",
