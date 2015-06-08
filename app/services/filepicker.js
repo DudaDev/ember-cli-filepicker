@@ -13,9 +13,9 @@ export default (Ember.Service || Ember.Object).extend({
 		}));
 	},
 	key: config.filepickerKey || config.APP.filepickerKey,
-	scriptURL : '//api.filepicker.io/v1/filepicker.js' || config.filepickerURL || config.APP.filepickerURL,
+	scriptURL : config.filepickerURL || config.APP.filepickerURL || '//api.filepicker.io/v2/filepicker.js',
 	promise: new Ember.RSVP.Promise(function(resolve, reject) {
 		resolveFn = resolve;
 	}),
-	instance: null 
+	instance: null
 });
