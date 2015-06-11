@@ -1,7 +1,7 @@
 # Ember-cli-filepicker
 
 [![npm version](https://badge.fury.io/js/ember-cli-filepicker.svg)](http://badge.fury.io/js/ember-cli-filepicker)
-[![Build Status](https://travis-ci.org/DudaDev/ember-cli-filepicker.svg)](https://travis-ci.org/DudaDev/ember-cli-filepicker)  
+[![Build Status](https://travis-ci.org/DudaDev/ember-cli-filepicker.svg)](https://travis-ci.org/DudaDev/ember-cli-filepicker)
 
 ## Installation
 
@@ -11,7 +11,7 @@
 * Create your filepicker.io key using the following URL: https://www.filepicker.io/.
 * Add your filepicker.io key in your config/environment.js
 ```
-//config/environment.js 
+//config/environment.js
 module.exports = function(environment) {
   var ENV = {
     //...
@@ -22,11 +22,15 @@ module.exports = function(environment) {
 * Use the filepicker.io documentation for options like extensions and services.
 * In your template:
 ```
-{{ember-filepicker options=options onSelection='fileSelected' onClose='onClose' onError='onError'}}
+{{ember-filepicker pickerOptions=pickerOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
 ```
-* The default usage of the above is the pick method.
-* You should pass options.picker with the pick options (mimetype, services, etc).
-* If you want to use pickAndStore, add an options.useStore flag and options.store (location, etc).
+* The above will use the pick method.
+* You should pass pickerOptions with the pick options (mimetype, services, etc).
+
+* If you want to use pickAndStore, also pass storeOptions (location, etc):
+```
+{{ember-filepicker pickerOptions=pickerOptions storeOptions=storeOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
+```
 
 
 ## Notes
@@ -34,30 +38,30 @@ In order to have access to the `filepicker` instance you can:
 * If `Ember.inject.service` is supported then in your object you can use:
 ```
 export default Ember.Component.extend({
-	//injecting the filepicker object
-	filepicker: Ember.inject.service(),
+        //injecting the filepicker object
+        filepicker: Ember.inject.service(),
 
-	someFunction: function(){
-		//Use the promise in case you are not sure that your component will be surly initialized after filepicker has been loaded
-		this.get('filepicker.promise').then(function(filepicker){
-			//do something with filepicker
-		});
+        someFunction: function(){
+                //Use the promise in case you are not sure that your component will be surly initialized after filepicker has been loaded
+                this.get('filepicker.promise').then(function(filepicker){
+                        //do something with filepicker
+                });
 
-		//OR if you are sure filepicker has already been loaded use:
-		this.get('filepicker.instance')
-	}
+                //OR if you are sure filepicker has already been loaded use:
+                this.get('filepicker.instance')
+        }
 });
 ```
 * Otherwise, you can use the lookup method:
 ```
 export default Ember.Component.extend({
-	//injecting the filepicker object
-	filepicker: Ember.inject.service(),
+        //injecting the filepicker object
+        filepicker: Ember.inject.service(),
 
-	someFunction: function(){
-		var filepicker = this.container.lookup('service:filepicker');
-		//do something with the filepicker.instance or filepicker.promise
-	}
+        someFunction: function(){
+                var filepicker = this.container.lookup('service:filepicker');
+                //do something with the filepicker.instance or filepicker.promise
+        }
 });
 ```
 
