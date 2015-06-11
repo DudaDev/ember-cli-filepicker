@@ -32,22 +32,22 @@ export default Ember.Mixin.create({
 			this.get('filepicker.promise').then(Ember.run.bind(this, function(filepicker) {
                                 var pickerOptions = this.get('pickerOptions');
                                 var storeOptions = this.get('storeOptions');
-        if (pickerOptions && storeOptions) {
-            filepicker.pickAndStore(
-              pickerOptions,
-              storeOptions,
-              Ember.run.bind(this, this.handleSelection),
-              Ember.run.bind(this, this.handleError)
-            );
-        }
-        else {
-          filepicker.pick(
-            pickerOptions,
-            Ember.run.bind(this, this.handleSelection),
-            Ember.run.bind(this, this.handleError)
-          );
-        }
-			}));
-		});
-	}.on('didInsertElement')
+                                if (pickerOptions && storeOptions) {
+                                        filepicker.pickAndStore(
+                                            pickerOptions,
+                                            storeOptions,
+                                            Ember.run.bind(this, this.handleSelection),
+                                            Ember.run.bind(this, this.handleError)
+                                        );
+                                }
+                                else {
+                                    filepicker.pick(
+                                        pickerOptions,
+                                        Ember.run.bind(this, this.handleSelection),
+                                        Ember.run.bind(this, this.handleError)
+                                    );
+                                }
+                        }));
+                });
+        }.on('didInsertElement')
 });
