@@ -24,6 +24,10 @@ module.exports = function(environment) {
 ```
 {{ember-filepicker options=options onSelection='fileSelected' onClose='onClose' onError='onError'}}
 ```
+* The default usage of the above is the pick method.
+* You should pass options.picker with the pick options (mimetype, services, etc).
+* If you want to use pickAndStore, add an options.useStore flag and options.store (location, etc).
+
 
 ## Notes
 In order to have access to the `filepicker` instance you can:
