@@ -30,24 +30,24 @@ export default Ember.Mixin.create({
 	openFilepicker: function() {
 		Ember.run.scheduleOnce('afterRender', this, function(){
 			this.get('filepicker.promise').then(Ember.run.bind(this, function(filepicker) {
-                                var pickerOptions = this.get('pickerOptions');
-                                var storeOptions = this.get('storeOptions');
-                                if (pickerOptions && storeOptions) {
-                                        filepicker.pickAndStore(
-                                            pickerOptions,
-                                            storeOptions,
-                                            Ember.run.bind(this, this.handleSelection),
-                                            Ember.run.bind(this, this.handleError)
-                                        );
-                                }
-                                else {
-                                    filepicker.pick(
-                                        pickerOptions,
-                                        Ember.run.bind(this, this.handleSelection),
-                                        Ember.run.bind(this, this.handleError)
-                                    );
-                                }
-                        }));
-                });
-        }.on('didInsertElement')
+        var pickerOptions = this.get('pickerOptions');
+        var storeOptions = this.get('storeOptions');
+        if (pickerOptions && storeOptions) {
+          filepicker.pickAndStore(
+            pickerOptions,
+            storeOptions,
+            Ember.run.bind(this, this.handleSelection),
+            Ember.run.bind(this, this.handleError)
+          );
+        }
+        else {
+          filepicker.pick(
+            pickerOptions,
+            Ember.run.bind(this, this.handleSelection),
+            Ember.run.bind(this, this.handleError)
+          );
+        }
+      }));
+    });
+  }.on('didInsertElement')
 });
