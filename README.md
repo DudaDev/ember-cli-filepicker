@@ -22,12 +22,15 @@ module.exports = function(environment) {
 * Use the filepicker.io documentation for options like extensions and services.
 * In your template:
 ```
-{{ember-filepicker options=options onSelection='fileSelected' onClose='onClose' onError='onError'}}
+{{ember-filepicker pickerOptions=pickerOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
 ```
-* The default usage of the above is the pick method.
-* You should pass options.picker with the pick options (mimetype, services, etc).
-* If you want to use pickAndStore, add an options.useStore flag and options.store (location, etc).
+* The above will use the pick method.
+* You should pass pickerOptions with the pick options (mimetype, services, etc).
 
+* If you want to use pickAndStore, also pass storeOptions (location, etc):
+```
+{{ember-filepicker pickerOptions=pickerOptions storeOptions=storeOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
+```
 
 ## Notes
 In order to have access to the `filepicker` instance you can:
