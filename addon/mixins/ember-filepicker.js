@@ -24,30 +24,42 @@ export default Ember.Mixin.create({
 	onSelection: null,
 	onError: null,
 	onClose: null,
-        pickerOptions : {},
-        storeOptions : {},
+	options: null,
+	pickerOptions : {},
+	storeOptions : null,
 	filepicker: Ember.inject ? Ember.inject.service() : null,
 	openFilepicker: function() {
 		Ember.run.scheduleOnce('afterRender', this, function(){
 			this.get('filepicker.promise').then(Ember.run.bind(this, function(filepicker) {
-        var pickerOptions = this.get('pickerOptions');
-        var storeOptions = this.get('storeOptions');
-        if (pickerOptions && storeOptions) {
-          filepicker.pickAndStore(
-            pickerOptions,
-            storeOptions,
-            Ember.run.bind(this, this.handleSelection),
-            Ember.run.bind(this, this.handleError)
-          );
-        }
-        else {
-          filepicker.pick(
-            pickerOptions,
-            Ember.run.bind(this, this.handleSelection),
-            Ember.run.bind(this, this.handleError)
-          );
-        }
-      }));
-    });
-  }.on('didInsertElement')
+				var pickerOptions, storeOptions;
+				var options = this.get('options');
+				var usePickAndStore;
+				if (options) {
+					pickerOptions = options.picker;
+					storeOptions = options.store;
+					usePickAndStore = (pickerOptions && options.useStore);
+					Ember.deprecate("'options' was passed instead of 'pickerOptions' and possibly 'storeOptions'. The options parameter has been split into these parameters.");
+				} else {
+					pickerOptions = this.get('pickerOptions');
+					storeOptions = this.get('storeOptions');
+					usePickAndStore = (pickerOptions && storeOptions);
+				}
+				if (usePickAndStore) {
+					filepicker.pickAndStore(
+						pickerOptions,
+						storeOptions,
+						Ember.run.bind(this, this.handleSelection),
+						Ember.run.bind(this, this.handleError)
+					);
+				}
+				else {
+					filepicker.pick(
+						pickerOptions,
+						Ember.run.bind(this, this.handleSelection),
+						Ember.run.bind(this, this.handleError)
+					);
+				}
+			}));
+		});
+	}.on('didInsertElement')
 });
