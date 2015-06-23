@@ -1,7 +1,8 @@
 # Ember-cli-filepicker
 
 [![npm version](https://badge.fury.io/js/ember-cli-filepicker.svg)](http://badge.fury.io/js/ember-cli-filepicker)
-[![Build Status](https://travis-ci.org/DudaDev/ember-cli-filepicker.svg)](https://travis-ci.org/DudaDev/ember-cli-filepicker)  
+[![Build Status](https://travis-ci.org/DudaDev/ember-cli-filepicker.svg)](https://travis-ci.org/DudaDev/ember-cli-filepicker) 
+[![Ember Observer Score](http://emberobserver.com/badges/ember-cli-filepicker.svg)](http://emberobserver.com/addons/ember-cli-filepicker) 
 
 ## Installation
 
