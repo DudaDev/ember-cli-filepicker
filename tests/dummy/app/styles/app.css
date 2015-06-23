@@ -1,0 +1,3 @@
+.ember-test-body #filepicker_dialog, .ember-test-body #filepicker_shade {
+	display: none;
+}
