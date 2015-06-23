@@ -28,8 +28,8 @@ export default Ember.Mixin.create({
 	pickerOptions : {},
 	storeOptions : null,
 	filepicker: Ember.inject ? Ember.inject.service() : null,
-	openFilepicker: function() {
-		Ember.run.scheduleOnce('afterRender', this, function(){
+	openFilepicker: Ember.on('didInsertElement', function() {
+		Ember.run.scheduleOnce('afterRender', this, function() {
 			this.get('filepicker.promise').then(Ember.run.bind(this, function(filepicker) {
 				var pickerOptions, storeOptions;
 				var options = this.get('options');
@@ -61,5 +61,6 @@ export default Ember.Mixin.create({
 				}
 			}));
 		});
-	}.on('didInsertElement')
+	})
+
 });
