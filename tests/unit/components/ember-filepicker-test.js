@@ -24,7 +24,6 @@ test('it renders', function(assert) {
 
 test('it opens filepicker on component element insertion', function(assert) {
     var component = this.subject();
-    this.render();
     return new Ember.RSVP.Promise(function(resolve, reject){
         var subscriber,
             interval = 100,

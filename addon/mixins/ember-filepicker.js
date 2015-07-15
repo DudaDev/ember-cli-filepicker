@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 var isServiceInjectionSupported = Ember.inject && Ember.inject.service;
 
-const PICK_METHOD_NAME = 'pick',
+var PICK_METHOD_NAME = 'pick',
 	PICK_MULTIPLE_METHOD_NAME = 'pickMultiple',
 	PICK_AND_STORE_METHOD_NAME = 'pickAndStore';
 
