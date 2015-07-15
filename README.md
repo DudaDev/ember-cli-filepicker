@@ -28,10 +28,15 @@ module.exports = function(environment) {
 * The above will use the pick method.
 * You should pass pickerOptions with the pick options (mimetype, services, etc).
 
-* If you want to use pickAndStore, also pass storeOptions (location, etc):
+* If you want to use [pickAndStore](https://www.filepicker.com/documentation/file_ingestion/javascript_api/pick_and_store?v=v2), also pass storeOptions (location, etc):
 ```
 {{ember-filepicker pickerOptions=pickerOptions storeOptions=storeOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
 ```
+* If you want to use [pickMultiple](https://www.filepicker.com/documentation/file_ingestion/javascript_api/pick_multiple?v=v2) files (without storing them), pass multiple=true :
+```
+{{ember-filepicker pickerOptions=pickerOptions multiple=true onSelection='fileSelected' onClose='onClose' onError='onError'}}
+```
+
 
 ## Notes
 In order to have access to the `filepicker` instance you can:
