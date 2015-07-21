@@ -11,7 +11,7 @@
 ## Usage
 * Create your filepicker.io key using the following URL: https://www.filepicker.io/.
 * Add your filepicker.io key in your config/environment.js
-```
+```javascript
 //config/environment.js 
 module.exports = function(environment) {
   var ENV = {
@@ -22,18 +22,18 @@ module.exports = function(environment) {
 ```
 * Use the filepicker.io documentation for options like extensions and services.
 * In your template:
-```
+```handlebars
 {{ember-filepicker pickerOptions=pickerOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
 ```
 * The above will use the pick method.
 * You should pass pickerOptions with the pick options (mimetype, services, etc).
 
 * If you want to use [pickAndStore](https://www.filepicker.com/documentation/file_ingestion/javascript_api/pick_and_store?v=v2), also pass storeOptions (location, etc):
-```
+```handlebars
 {{ember-filepicker pickerOptions=pickerOptions storeOptions=storeOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
 ```
 * If you want to use [pickMultiple](https://www.filepicker.com/documentation/file_ingestion/javascript_api/pick_multiple?v=v2) files (without storing them), pass multiple=true :
-```
+```handlebars
 {{ember-filepicker pickerOptions=pickerOptions multiple=true onSelection='fileSelected' onClose='onClose' onError='onError'}}
 ```
 
@@ -41,7 +41,7 @@ module.exports = function(environment) {
 ## Notes
 In order to have access to the `filepicker` instance you can:
 * If `Ember.inject.service` is supported then in your object you can use:
-```
+```javascript
 export default Ember.Component.extend({
 	//injecting the filepicker object
 	filepicker: Ember.inject.service(),
@@ -58,7 +58,7 @@ export default Ember.Component.extend({
 });
 ```
 * Otherwise, you can use the lookup method:
-```
+```javascript
 export default Ember.Component.extend({
 	//injecting the filepicker object
 	filepicker: Ember.inject.service(),
