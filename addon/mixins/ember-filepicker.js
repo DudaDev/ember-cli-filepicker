@@ -7,11 +7,12 @@ var PICK_METHOD_NAME = 'pick',
 	PICK_AND_STORE_METHOD_NAME = 'pickAndStore';
 
 export default Ember.Mixin.create({
-	injectFilepickerService: function() {
+	injectFilepickerService: Ember.on('init', function() {
 		if (!isServiceInjectionSupported) {
 			this.set('filepicker', this.container.lookup('service:filepicker'));
 		}
-	}.on('init'),
+	}),
+
 	handleSelection: function(data) {
 		if (this.get('onSelection')) {
 			this.sendAction('onSelection', data);
