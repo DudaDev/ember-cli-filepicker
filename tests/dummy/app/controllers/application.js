@@ -12,13 +12,13 @@ export default Ember.ObjectController.extend({
 			this.set('showFilePicker', false);
 		},
 		fileSelected: function(data) {
-			this.send('hidePicker');
+			this.send('hidePicker', data);
 		},
 		onClose: function() {
 			this.send('hidePicker');
 		},
 		onError: function(error) {
-			this.send('hidePicker');
+			this.send('hidePicker', error);
 		}
 	}
 

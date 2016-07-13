@@ -1,8 +1,8 @@
 # Ember-cli-filepicker
 
 [![npm version](https://badge.fury.io/js/ember-cli-filepicker.svg)](http://badge.fury.io/js/ember-cli-filepicker)
-[![Build Status](https://travis-ci.org/DudaDev/ember-cli-filepicker.svg)](https://travis-ci.org/DudaDev/ember-cli-filepicker) 
-[![Ember Observer Score](http://emberobserver.com/badges/ember-cli-filepicker.svg)](http://emberobserver.com/addons/ember-cli-filepicker) 
+[![Build Status](https://travis-ci.org/DudaDev/ember-cli-filepicker.svg)](https://travis-ci.org/DudaDev/ember-cli-filepicker)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-cli-filepicker.svg)](http://emberobserver.com/addons/ember-cli-filepicker)
 
 ## Installation
 
@@ -12,13 +12,14 @@
 * Create your filepicker.io key using the following URL: https://www.filepicker.io/.
 * Add your filepicker.io key in your config/environment.js
 ```javascript
-//config/environment.js 
+//config/environment.js
 module.exports = function(environment) {
   var ENV = {
     //...
     filepickerKey: '<your-filepicker-key>'
   };
-//...
+  //...
+}
 ```
 * Use the filepicker.io documentation for options like extensions and services.
 * In your template:
@@ -77,6 +78,7 @@ export default Ember.Component.extend({
 
 ## Running Tests
 
+* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
@@ -84,4 +86,4 @@ export default Ember.Component.extend({
 
 * `ember build`
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
