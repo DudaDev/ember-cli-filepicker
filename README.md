@@ -6,7 +6,7 @@
 
 ## Installation
 
-* `ember install:addon ember-cli-filepicker`
+* `ember install ember-cli-filepicker`
 
 ## Usage
 * Create your filepicker.io key using the following URL: https://www.filepicker.io/.
