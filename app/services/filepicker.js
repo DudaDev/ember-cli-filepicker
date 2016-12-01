@@ -7,7 +7,7 @@ export default (Ember.Service || Ember.Object).extend({
 
 	_isPromiseFulfilled: false,
 	_initFilepicker: Ember.on('init', function() {
-		var _resolveFn, _rejectFn,
+		var _resolveFn, _rejectFn, _timeout,
 			_isPromiseFulfilled = false;
 			
 		this.set('promise', new Ember.RSVP.Promise(function(resolve, reject) {
@@ -32,9 +32,12 @@ export default (Ember.Service || Ember.Object).extend({
 			}))
 			.catch(Ember.run.bind(this, function(error) {
 				_rejectFn.call(null, error);
-			}));
+			}))
+			.finally(function() {
+				Ember.run.cancel(_timeout);
+			});
 
-		Ember.run.later(this, function(){
+		_timeout = Ember.run.later(this, function(){
 			if (!_isPromiseFulfilled){
 				_rejectFn.call(null, new Error('Filepicker script load timeout.'));
 			}
